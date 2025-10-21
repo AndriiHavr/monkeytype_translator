@@ -1,8 +1,8 @@
-// bg.js — шле запит лише на твій Cloudflare Worker
+
 const TAG = "[MT bg]";
 console.log(TAG, "up at", new Date().toISOString());
 
-// ⬇️ ПІДСТАВ СЮДИ СВІЙ URL ВОРКЕРА
+// URL ВОРКЕРА
 const WORKER_API = "https://mt-translate-proxy.eclipses-ukr.workers.dev";
 
 const DEFAULTS = {
@@ -42,7 +42,6 @@ chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
 });
 
 async function translateViaWorker(q, cfg) {
-  // mock-режим: постав api: "mock:" у content.js для діагностики
   if ((cfg.api || "").startsWith("mock:")) {
     await sleep(150);
     return { ok: true, text: `[mock] ${q}`, used: { api: "mock" } };

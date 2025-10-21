@@ -13,7 +13,7 @@ const DEFAULTS = {
   minWordLen: 2,
   showDelayMs: 150,
   debounceMs: 150,
-  lingerMs: 6000 // зроби 4000–6000 як тобі зручно
+  lingerMs: 6000 
 };
 
 // кеш: слово→результат
@@ -35,7 +35,6 @@ async function init() {
   const obs = new MutationObserver(debounce(handleActiveChange, cfg.debounceMs));
   obs.observe(wordsRoot, { attributes: true, subtree: true, attributeFilter: ["class"] });
 
-  // перше спрацювання
   handleActiveChange();
 }
 
@@ -136,7 +135,7 @@ function showBubble(targetEl, text, ms = 0) {
 
   // позиціонування над словом
   const r = targetEl.getBoundingClientRect();
-  const top = window.scrollY + r.top - 12;   // трохи вище
+  const top = window.scrollY + r.top - 12;   
   const left = window.scrollX + r.left;
 
   tip.style.top = `${Math.max(0, top - tip.offsetHeight)}px`;
@@ -168,7 +167,7 @@ function askBackground(q) {
 /* ---------------- utils ---------------- */
 
 function normalizeWord(w) {
-  // прості евристики для monkeytype (не ідеально, але допомагає)
+  // прості евристики для monkeytype
   const s = w.toLowerCase();
   if (s.endsWith("ing") && s.length > 5) return s.slice(0, -3);
   if (s.endsWith("ed")  && s.length > 4) return s.slice(0, -2);
