@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monkeytype Translate Bubble — Options</title>
+  <style>
+    body{font:14px/1.4 system-ui, sans-serif; margin:24px;}
+    label{display:block; margin:10px 0 4px;}
+    input{padding:6px 10px; font:inherit; width:200px;}
+    button{margin-top:12px; padding:8px 14px;}
+    .muted{opacity:.7}
+  </style>
+</head>
+<body>
+  <h1>Налаштування</h1>
+
+  <label for="api">API endpoint</label>
+  <input id="api" placeholder="https://libretranslate.de/translate" />
+
+  <label for="from">From (наприклад, en або auto)</label>
+  <input id="from" value="en" />
+
+  <label for="to">To (наприклад, uk)</label>
+  <input id="to" value="uk" />
+
+  <label for="showDelayMs">Show delay (ms)</label>
+  <input id="showDelayMs" type="number" value="120" />
+
+  <label for="lingerMs">Linger (ms)</label>
+  <input id="lingerMs" type="number" value="2600" />
+
+  <label for="debounceMs">Debounce (ms)</label>
+  <input id="debounceMs" type="number" value="140" />
+
+  <div><button id="save">Зберегти</button> <span id="status" class="muted"></span></div>
+
+  <script src="options.js"></script>
+</body>
+</html>

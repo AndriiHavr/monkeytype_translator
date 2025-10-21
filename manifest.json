@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Monkeytype Translate Bubble",
+  "version": "1.0.0",
+  "description": "Показує переклад активного слова в Monkeytype. Кеш, затримка показу, не заважає друку.",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://monkeytype.com/*",
+    "https://*.workers.dev/*"
+  ],
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/favicon.png",
+      "48": "icons/favicon.png",
+      "128": "icons/favicon.png"
+    }},
+  "content_scripts": [
+    {
+      "matches": ["https://monkeytype.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
